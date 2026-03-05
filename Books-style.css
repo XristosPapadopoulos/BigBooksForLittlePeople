@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Fredoka:wght@300;400;500&display=swap');
+
+html, body {
+    overflow-x: hidden; /* Εμποδίζει το οριζόντιο scrolling */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box; /* Πολύ σημαντικό για να μην προστίθενται τα paddings στο συνολικό πλάτος */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka', sans-serif; /* Μαλακή γραμματοσειρά για το κείμενο */
+    
+    /* Μαγικό Φόντο Ουρανού με Αστέρια */
+    background: linear-gradient(180deg, #5bb2ff 0%, #a2d7ff 100%);
+    background-attachment: fixed;
+    background-image: radial-gradient(white 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-color: #5bb2ff;
+}
+
+/* --- HEADER MASTERPIECE (Το Σύννεφο) --- */
+.header-bar {
+    background-color: #fff9e3;
+    background-image: radial-gradient(#f0f0f0 2px, transparent 2px);
+    background-size: 20px 20px;
+    
+    padding: 40px 20px 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+    /* Σχήμα Σύννεφου στο κάτω μέρος */
+    border-bottom-left-radius: 50% 30px;
+    border-bottom-right-radius: 50% 30px;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    z-index: 10;
+}
+
+/* Container για το λογότυπο */
+.logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Κεντράρει οριζόντια */
+    align-items: center;
+    padding-top: 60px;       /* Απόσταση από το header */
+    padding-bottom: 60px;    /* Απόσταση από το πρώτο βιβλίο */
+}
+
+.logo {
+    width: 450px;            /* Το κάναμε αρκετά μεγάλο */
+    height: auto;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.15)); /* Σκιά για να "πετάει" */
+    
+    /* Animation για να κουνιέται απαλά πάνω-κάτω μόνο του */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Εφέ όταν περνάς το ποντίκι */
+.logo:hover {
+    transform: scale(1.08) rotate(-2deg);
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.25));
+}
+
+.header-text {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    margin: 0;
+    cursor: default;
+    display: flex;
+    gap: 15px;
+}
+
+/* Εφέ Αυτοκόλλητου (Sticker Style) */
+.header-text span {
+    display: inline-block;
+    text-shadow: 
+        3px 3px 0px #fff, 
+        -1px -1px 0px #fff, 
+        1px -1px 0px #fff, 
+        -1px 1px 0px #fff,
+        5px 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Χρώματα Λογοτύπου */
+.word-1 { color: #004a99; }
+.word-2 { color: #ffcc00; }
+.word-3 { color: #ff5733; }
+.word-4 { color: #2ecc71; }
+.word-5 { color: #004a99; }
+
+/* Wobble Animation */
+.header-bar:hover .header-text span {
+    animation: wobble 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes wobble {
+    from { transform: rotate(-3deg) translateY(0); }
+    to { transform: rotate(3deg) translateY(-10px); }
+}
+
+.Words {
+    max-width: 950px;
+    margin: 80px auto;
+    padding: 50px;
+    
+    /* Ημιδιαφανές λευκό που "δανείζεται" το μπλε του φόντου */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(12px); /* Το εφέ θολώματος που το κάνει να μοιάζει με κρύσταλλο */
+    -webkit-backdrop-filter: blur(12px);
+    
+    /* Στρογγυλεμένες γωνίες και σκιές */
+    border-radius: 50px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    
+    /* Διπλό περίγραμμα: Ένα λευκό και ένα διακεκομμένο μπλε για "σχολικό" ύφος */
+    border: 4px solid white;
+    outline: 4px dashed #5bb2ff;
+    outline-offset: -15px; /* Το περίγραμμα μπαίνει μέσα στην κάρτα */
+    
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ο Τίτλος μέσα στην κάρτα */
+.Words h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #ff5733; /* Ζεστό πορτοκαλί/κόκκινο */
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px #fff, 4px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Το κυρίως κείμενο */
+.words {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Highlight για σημαντικές λέξεις μέσα στο κείμενο */
+.highlight {
+    color: #004a99;
+    font-weight: 600;
+    background: rgba(255, 204, 0, 0.2); /* Κίτρινο highlight σαν μαρκαδόρος */
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+/* Διακοσμητικά στοιχεία (Προαιρετικά: μικρά συννεφάκια στις γωνίες) */
+.Words::before {
+    content: "☁️";
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.Words::after {
+    content: "📖";
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+/* Highlight για σημαντικές λέξεις */
+.highlight {
+    color: #004a99;
+    font-weight: 600;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Το Πλέγμα των Βιβλίων */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 50px;
+    margin-bottom: 100px;
+}
+
+.book {
+    background: rgba(255, 255, 255, 0.85); /* Ημιδιαφανές λευκό */
+    backdrop-filter: blur(10px);          /* Θόλωμα του ουρανού από πίσω */
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    cursor: pointer;
+}
+
+.book:hover {
+    transform: translateY(-15px) rotate(2deg);
+    background: rgba(255, 255, 255, 1); /* Γίνεται πιο έντονο στο hover */
+    border-color: #ffcc00;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 4px solid #f9f9f9;
+}
+
+.book h3 {
+    font-family: 'Fredoka One', cursive;
+    color: #004a99;
+    font-size: 1.8rem;
+    margin: 15px 0;
+}
+
+.book a, .surviving-book a {
+    text-decoration: none; 
+    color: inherit;       
+    display: block;    
+}   
+
+.book a:hover,.surviving-book a:hover {
+    text-decoration: none; 
+}
+
+.book p, .surviving-book p {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0 10px;
+}
+
+.surviving-book {
+    background: rgba(255, 253, 245, 0.9); 
+    backdrop-filter: blur(15px);
+    max-width: 650px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 8px solid #ff5733;
+    transition: transform 0.4s ease;
+}
+
+.surviving-book:hover {
+    transform: scale(1.05);
+}
+
+.surviving-book h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #004a99;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+/* --- SECTION ΣΥΓΓΡΑΦΕΙΣ --- */
+.author {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 120px;
+    padding: 40px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Ο Τίτλος "Authors" */
+.Author-p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.Author-P {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    color: black; 
+    text-shadow: 4px 4px 0px #004a99;
+    margin: 0;
+}
+
+/* Η Κάρτα του κάθε Συγγραφέα */
+.Author {
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    max-width: 380px;
+}
+
+.Author img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 12px solid white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    transition: all 0.4s ease;
+}
+
+.Author h3 {
+    font-family: 'Fredoka One', cursive;
+    color: white; 
+    margin-top: 25px;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Εφέ όταν περνάς το ποντίκι πάνω από τη φωτογραφία */
+.Author:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+.Author:hover img {
+    border-color: #ffcc00; /* Αλλάζει χρώμα το στεφάνι στο hover */
+}
+
+/* --- MODAL (Το παράθυρο που "πετάγεται") --- */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 74, 153, 0.5); /* Μπλε ημιδιαφάνεια */
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: #fff9e3;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 40px;
+    width: 80%;
+    max-width: 600px;
+    border: 6px solid #ffcc00;
+    position: relative;
+    /* Animation εμφάνισης */
+    animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* Τίτλος μέσα στο Modal */
+.modal-title {
+    font-family: 'Fredoka One', cursive;
+    color: #004a99;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Το σώμα του κειμένου στο Modal */
+.modal-body {
+    padding: 10px;
+}
+
+.modal-body .words {
+    margin-bottom: 15px;
+    text-align: justify;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Κουμπί Read Bio κάτω από τη φωτογραφία */
+.read-bio-btn {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.read-bio-btn:hover {
+    color: #ffcc00;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #ff5733;
+}
+
+/* --- EVENTS SECTION --- */
+.events-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.events-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.events-title h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 4px 4px 0px #ff5733;
+}
+
+/* Το Πλέγμα 3x3 */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 ίσες στήλες */
+    gap: 30px; /* Απόσταση μεταξύ των φωτογραφιών */
+}
+
+/* Η κάθε φωτογραφία */
+.event-photo {
+    background: white;
+    padding: 15px; /* Λευκό περιθώριο σαν κορνίζα */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, rotate 0.3s ease;
+}
+
+.event-photo img {
+    width: 100%;
+    height: 250px; /* Σταθερό ύψος για ομοιομορφία */
+    object-fit: cover; /* Κόβει την εικόνα σωστά για να γεμίσει το πλαίσιο */
+    border-radius: 10px;
+}
+
+/* Εφέ Hover: Η φωτογραφία "κουνιέται" λίγο */
+.event-photo:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    z-index: 5;
+}
+
+/* --- ΣΤΑΔΙΟ 1: TABLETS & SMALL LAPTOPS (Έως 1024px) --- */
+@media (max-width: 1024px) {
+    .grid-container, .events-grid { 
+        grid-template-columns: repeat(2, 1fr); /* 2 στήλες αντί για 3 */
+        gap: 30px;
+    }
+    .logo { width: 320px; } /* Μικραίνει ελαφρώς το μεγάλο logo */
+    .header-text { font-size: 2.8rem; }
+}
+
+/* --- ΣΤΑΔΙΟ 2: ΚΙΝΗΤΑ & ΜΙΚΡΑ TABLETS (Έως 768px) --- */
+@media (max-width: 768px) {
+    .header-content { 
+        flex-direction: column; 
+        gap: 20px; 
+    }
+    .header-text { 
+        font-size: 2.2rem; 
+        text-align: center; 
+    }
+    .logo { width: 220px; }
+    
+    /* Τώρα γίνονται όλα 1 στήλη για να διαβάζονται εύκολα */
+    .grid-container, .events-grid { 
+        grid-template-columns: 1fr; 
+        max-width: 450px; /* Περιορίζουμε το πλάτος για να μην "ξεχειλώνουν" οι φωτό */
+        margin: 0 auto;
+    }
+
+    .Author img { 
+        width: 280px; 
+        height: 280px; 
+    }
+
+    .Words {
+        padding: 30px 20px;
+        margin: 40px 15px;
+        outline: none; /* Αφαιρούμε το dashed outline για περισσότερο χώρο */
+    }
+    .Words h2 { font-size: 1.8rem; }
+    .words { font-size: 1.1rem; }
+}
+
+/* --- ΣΤΑΔΙΟ 3: ΠΟΛΥ ΜΙΚΡΑ ΚΙΝΗΤΑ (Έως 480px) --- */
+@media (max-width: 480px) {
+    .header-text { font-size: 1.8rem; }
+    .logo { width: 160px; }
+    .Author img { width: 220px; height: 220px; }
+    
+    /* Ρύθμιση για το Modal (Bio) ώστε να χωράει στην οθόνη */
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+}
