@@ -260,6 +260,12 @@ body {
     padding: 0 10px;
 }
 
+.featured-img {
+    max-width: 100%; 
+    height: auto;    
+    display: block;  
+    margin: 0 auto;  
+}
 .surviving-book {
     background: rgba(255, 253, 245, 0.9); 
     backdrop-filter: blur(15px);
@@ -510,6 +516,10 @@ body {
     }
     .Words h2 { font-size: 1.8rem; }
     .words { font-size: 1.1rem; }
+    .featured-img {
+            width: 100%;    
+            max-width: 100%;
+        }
 }
 
 /* --- ΣΤΑΔΙΟ 3: ΠΟΛΥ ΜΙΚΡΑ ΚΙΝΗΤΑ (Έως 480px) --- */
@@ -517,7 +527,6 @@ body {
     .header-text { font-size: 1.8rem; }
     .logo { width: 160px; }
     .Author img { width: 220px; height: 220px; }
-    
     /* Ρύθμιση για το Modal (Bio) ώστε να χωράει στην οθόνη */
     .modal-content {
         width: 90%;
@@ -525,4 +534,5 @@ body {
         max-height: 85vh;
         overflow-y: auto;
     }
+
 }
